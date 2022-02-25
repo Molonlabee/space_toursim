@@ -6,7 +6,16 @@ export default class Technology extends Component {
   constructor(){
     super();
     this.state = {
-      technology: []
+      technology: [],
+      techInfo: {
+        "id": 1,
+        "name": "Launch vehicle",
+        "images": {
+          "portrait": "./assets/technology/image-launch-vehicle-portrait.jpg",
+          "landscape": "./assets/technology/image-launch-vehicle-landscape.jpg"
+        },
+        "description": "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!"
+      }
       
     }
   }
@@ -19,7 +28,27 @@ export default class Technology extends Component {
     })
   }
 
+  getTech = (id) => {
+    const {technology, techInfo} = this.state;
+
+    let tech = technology.find((tech) => {
+      return tech.id === id + 1;
+    })
+    this.setState({techInfo: tech})
+    console.log('techInfo: ', techInfo)
+  }
+
   render() {
+    const {technology, techInfo} = this.state;
+
+    const mappedTech = technology.map((tech, id) =>(
+      <button
+      onClick={()=> this.getTech(id)}
+      key={id}>
+        {techInfo.id}
+      </button>
+    ))
+
     return (
       <div className='technology fill center'>
         <div className='container'>
@@ -28,15 +57,16 @@ export default class Technology extends Component {
             <div className='flex'>
 
               <div className='number-indicators underline-indicators grid'>
-                <button aria-selected='true'>1</button>
+                {mappedTech}
+                {/* <button aria-selected='true'>1</button>
                 <button aria-selected='false'>2</button>
-                <button aria-selected='false'>3</button>
+                <button aria-selected='false'>3</button> */}
               </div>
 
               <div>
                 <p className='text-accent fs-400'>The terminology...</p>
-                <p className='text-white fs-700'>name</p>
-                <p className='text-accent fs-400'>description</p>
+                <p className='text-white fs-700'>{techInfo.name}</p>
+                <p className='text-accent fs-400'>{techInfo.description}</p>
               </div>
             </div>
           </div>

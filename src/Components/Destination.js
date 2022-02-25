@@ -8,15 +8,15 @@ export default class Destination extends Component {
     this.state = {
       destinations: [{}],
       planetInfo: {
-          // "id": 1,
-          // "name": "Moon",
-          // "images": {
-          //   "png": "../assets/destination/image-moon.png",
-          //   "webp": "./assets/destination/image-moon.webp"
-          // },
-          // "description": "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
-          // "distance": "384,400 km",
-          // "travel": "3 days"
+          "id": 1,
+          "name": "Moon",
+          "images": {
+            "png": "./assets/destination/image-moon.png",
+            "webp": "./assets/destination/image-moon.webp"
+          },
+          "description": "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
+          "distance": "384,400 km",
+          "travel": "3 days"
       }
     }
   }
@@ -26,27 +26,26 @@ export default class Destination extends Component {
     .get('http://localhost:3005/destinations')
     .then(response =>{
       this.setState({destinations:response.data})
-      console.log("Destinations array:",this.state.destinations)
     })
     .catch(err => console.log('Error'))
+    
   }
   
-  getPlanet=()=>{
+  getPlanet=(id)=>{
     const {destinations, planetInfo} = this.state
-    // let planet = destinations.filter((index)=>{
-    //   return (index === index)
-    // })
-    let planet = destinations.find((id)=> id === id)
+    
+    let planet = destinations.find((destination)=> {
+      return destination.id === id + 1;
+    })
     
     this.setState({planetInfo: planet})
     console.log('planetInfo:', planetInfo)
   }
   
   render() {
-    console.log('state: ', this.state.planetInfo);
-    const {planetInfo} = this.state;
+    const {planetInfo, destinations} = this.state;
 
-    const mappedDestinations = this.state.destinations.map((destination, id) =>(
+    const mappedDestinations = destinations.map((destination, id) =>(
       <button 
         onClick={()=> this.getPlanet(id)}
         key={id}
