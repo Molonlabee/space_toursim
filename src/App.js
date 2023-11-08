@@ -25,7 +25,7 @@ function App() {
         {/* put the footer at each pg for gap or z-index 100 flex end */}
         <footer className="attribution center">
           Challenge by <a href="https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3" target="_blank">Frontend Mentor</a> 
-          Coded by <a href="https://www.janayahernandez.com" target="_blank">Janaya Hernandez</a>
+          {/* Coded by <a href="https://www.janayahernandez.com" target="_blank">Janaya Hernandez</a> */}
         </footer>
       </div>
     </HashRouter>

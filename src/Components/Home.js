@@ -18,7 +18,7 @@ export default class Home extends Component {
           
           {/* RIGHT IMAGE */}
           <div className='center right-side'>
-            <a href='https://www.youtube.com/watch?v=XBPjVzSoepo' target="_blank" className='large-button uppercase ff-serif fs-600 text-dark bg-white'>Explore</a>
+            <a href='https://www.youtube.com/watch?v=_HGQZlK08gQ' target="_blank" className='large-button uppercase ff-serif fs-600 text-dark bg-white'>Explore</a>
           </div>
         </div>
       </div>

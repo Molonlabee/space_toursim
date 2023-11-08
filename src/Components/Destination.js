@@ -71,6 +71,8 @@ export default class Destination extends Component {
 
               <p className='fs-800 ff-serif uppercase'>{planetInfo.name}</p>
               <p className='text-accent'>{planetInfo.description}</p>
+              {/* style break  */}
+              <br />
             </div>
             
             <div className='flex'>
@@ -78,6 +80,8 @@ export default class Destination extends Component {
                 <p className='text-accent'>Avg. distance: </p>
                 <p className='text-white fs-600'>{planetInfo.distance}</p>
               </div>
+               {/* style break */}
+              <br /> 
               <div>
                 <p className='text-accent'>Est. travel time: </p>
                 <p className='text-white fs-600'>{planetInfo.travel}</p>
